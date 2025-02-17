@@ -18,7 +18,7 @@ connect();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["https://jobcompass-frontend.onrender.com"],
+    origin: ["https://jobcompass-frontend-1.onrender.com"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
