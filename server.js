@@ -10,7 +10,7 @@ import settings from "./routes/settings.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 2000;
+const PORT = process.env.PORT;
 
 connect();
 
