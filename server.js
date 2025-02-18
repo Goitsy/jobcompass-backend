@@ -16,16 +16,25 @@ connect();
 
 // Middleware
 app.use(express.json());
+
+app.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+  next();
+});
+
+// CORS configuration
 app.use(
   cors({
-    origin: ["https://jobcompass-frontend.onrender.com"],
+    origin: [
+      "https://jobcompass-frontend.onrender.com",
+      "http://localhost:4174",
+    ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
 // Routes
-
 app.use("/api/auth", authRoutes);
 app.use("/api/jobapp", jobAppRoutes);
 app.use("/api", analyticsRoutes);
